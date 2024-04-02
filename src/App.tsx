@@ -1,5 +1,6 @@
 import React from 'react';
 import StockChart from './StockChart';
+import StockTable from './StockTable';
 
 class App extends React.Component<{}, {data: any; loading: boolean}>{
     constructor(props: {}) {
@@ -24,6 +25,7 @@ class App extends React.Component<{}, {data: any; loading: boolean}>{
                 volume : parseInt(values[4])
             };
         });
+        console.log(results);
         return results;
     }
 
@@ -45,7 +47,13 @@ class App extends React.Component<{}, {data: any; loading: boolean}>{
 
         return (
             <>
+            <h1 className="text-3xl text-center font-bold text-gray-700">
+                IBM Stock Information
+            </h1>
+            <div className='p-16'>
                 <StockChart chartData={data} />
+                <StockTable chartData={data} />
+            </div>
             </>
         )
     }
