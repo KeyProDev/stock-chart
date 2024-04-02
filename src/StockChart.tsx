@@ -16,7 +16,7 @@ class StockChart extends React.Component<{chartData: any}, {}>{
                 valueType: 'DateTime',
                 majorGridLines: { width: 0 }, majorTickLines: { color: 'transparent' },
                 crosshairTooltip: { enable: true }
-            }} tooltip={{enable: true }} title='Sales Analysis' crosshair={{ enable: true, lineType: 'Both' }} height='350'>
+            }} tooltip={{enable: true }} title='Stock Price' crosshair={{ enable: true, lineType: 'Both' }} height='350'>
                 <Inject services={[DateTime, Tooltip, RangeTooltip, Crosshair, LineSeries, SplineSeries, CandleSeries, HiloOpenCloseSeries, HiloSeries, RangeAreaSeries, Trendlines,
                 EmaIndicator, RsiIndicator, BollingerBands, TmaIndicator, MomentumIndicator, SmaIndicator, AtrIndicator, Export,
                 AccumulationDistributionIndicator, MacdIndicator, StochasticIndicator]}/>
