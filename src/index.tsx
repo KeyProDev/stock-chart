@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {registerLicense} from '@syncfusion/ej2-base';
-registerLicense("ORg4AjUWIQA/Gnt2UFhhQlJBfVpdXHxLflFyVWdTfFh6dldWACFaRnZdRl1nSX9ScEZqXXxYd3FR");
+registerLicense(process.env.SYNCFUSION_KEY ? process.env.SYNCFUSION_KEY : "");
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement

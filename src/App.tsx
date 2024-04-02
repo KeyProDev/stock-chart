@@ -30,7 +30,7 @@ class App extends React.Component<{}, {data: any; loading: boolean}>{
     }
 
     componentDidMount() {
-        fetch('https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=IBM&apikey=demo')
+        fetch(`https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=IBM&apikey=${process.env.ALPHAVANTAGE_API_KEY ? process.env.ALPHAVANTAGE_API_KEY : 'demo'}`)
             .then(response => response.json())
             .then(data => {
                 this.setState({data: this.convertStockData(data), loading: false});
