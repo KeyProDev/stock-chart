@@ -12,14 +12,16 @@ class StockChart extends React.Component<{chartData: any}, {}>{
         const { chartData } = this.props;
 
         return (
-            <StockChartComponent id="stockchart" title="IBM Stock Price" primaryXAxis={{ isInversed: false }}>
-                <Inject
-                    services={[DateTime, Tooltip, RangeTooltip, Crosshair, LineSeries, SplineSeries, Logarithmic, CandleSeries, HiloOpenCloseSeries,
-                    HiloSeries, RangeAreaSeries, Trendlines,EmaIndicator, RsiIndicator, BollingerBands, TmaIndicator, MomentumIndicator, SmaIndicator,
-                    AtrIndicator, Export, AccumulationDistributionIndicator, MacdIndicator, StochasticIndicator]}
-                />
+            <StockChartComponent id='stockchart' primaryXAxis={{
+                valueType: 'DateTime',
+                majorGridLines: { width: 0 }, majorTickLines: { color: 'transparent' },
+                crosshairTooltip: { enable: true }
+            }} tooltip={{enable: true }} title='Sales Analysis' crosshair={{ enable: true, lineType: 'Both' }} height='350'>
+                <Inject services={[DateTime, Tooltip, RangeTooltip, Crosshair, LineSeries, SplineSeries, CandleSeries, HiloOpenCloseSeries, HiloSeries, RangeAreaSeries, Trendlines,
+                EmaIndicator, RsiIndicator, BollingerBands, TmaIndicator, MomentumIndicator, SmaIndicator, AtrIndicator, Export,
+                AccumulationDistributionIndicator, MacdIndicator, StochasticIndicator]}/>
                 <StockChartSeriesCollectionDirective>
-                    <StockChartSeriesDirective dataSource={chartData} type='Candle' xName='date' high='high' low='low' open='open' close='close' name='IBM'>
+                    <StockChartSeriesDirective dataSource={chartData} type='Candle'>
                     </StockChartSeriesDirective>
                 </StockChartSeriesCollectionDirective>
             </StockChartComponent>
